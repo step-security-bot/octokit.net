@@ -26,5 +26,7 @@ jobs:
       with:
         dotnet-version: 3.1.*
     - name: Build with dotnet
-      run: ./build.sh --linksources=true --verbosity=verbose
-      shell: bash
+      run: |
+        git config --global http.postBuffer 157286400
+        ./build.sh --linksources=true --verbosity=verbose
+      shell: bash  
