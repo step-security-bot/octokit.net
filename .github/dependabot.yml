@@ -10,3 +10,34 @@ updates:
   schedule:
     interval: weekly
   open-pull-requests-limit: 10
+
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /Octokit.Reactive
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /Octokit.Tests.Conventions
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /Octokit.Tests.Integration
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /Octokit.Tests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /Octokit
+    schedule:
+      interval: daily

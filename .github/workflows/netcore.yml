@@ -3,6 +3,9 @@ name: CI Build
 on:
   workflow_dispatch
 
+permissions:  # added using https://github.com/step-security/secure-workflows
+  contents: read
+
 jobs:
   build:
 
@@ -13,16 +16,16 @@ jobs:
     runs-on: ${{ matrix.platform }}
 
     steps:
-    - uses: step-security/harden-runner@rc
+    - uses: step-security/harden-runner@ebacdc22ef6c2cfb85ee5ded8f2e640f4c776dd5 # rc
       with:
         egress-policy: audit
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e # v1.2.0
     - name: Setup .NET 5
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@608ee757cfcce72c2e91e99aca128e0cae67de87 # v1.9.1
       with:
         dotnet-version: 5.0.*
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@608ee757cfcce72c2e91e99aca128e0cae67de87 # v1.9.1
       with:
         dotnet-version: 3.1.*
     - name: Build with dotnet
